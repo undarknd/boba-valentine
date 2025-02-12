@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Boba 💕</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #ff66b2;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .container {
+            padding: 20px;
+        }
+        .button {
+            background-color: #ff99cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        .hidden {
+            display: none;
+        }
+        .gallery img {
+            width: 100px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey Boba, my sweetest Omom! 💕</h1>
+        <button class="button" onclick="showLoveLetter()">Open Love Letter 💌</button>
+        <div id="loveLetter" class="hidden">
+            <p>To my dearest Boba, my one and only Omom... You are my sunshine, my happiness, my everything. Happy Valentine's Day! 💖</p>
+        </div>
+        <button class="button" onclick="showGallery()">See Our Memories 📸</button>
+        <div id="gallery" class="gallery hidden">
+            <img src="pic1.jpg" alt="Memory 1">
+            <img src="pic2.jpg" alt="Memory 2">
+            <img src="pic3.jpg" alt="Memory 3">
+        </div>
+        <button class="button" onclick="startQuiz()">Take Our Love Quiz 💖</button>
+        <div id="quiz" class="hidden">
+            <p>What is our favorite date spot?</p>
+            <button class="button">A) The café ☕</button>
+            <button class="button">B) The park 🌳</button>
+        </div>
+        <button class="button" onclick="showCountdown()">Countdown to Our Next Adventure ⏳</button>
+        <div id="countdown" class="hidden">
+            <p>Countdown to our special day: <span id="timer"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function showLoveLetter() {
+            document.getElementById('loveLetter').classList.toggle('hidden');
+        }
+        function showGallery() {
+            document.getElementById('gallery').classList.toggle('hidden');
+        }
+        function startQuiz() {
+            document.getElementById('quiz').classList.toggle('hidden');
+        }
+        function showCountdown() {
+            document.getElementById('countdown').classList.toggle('hidden');
+            let countdownDate = new Date("Feb 14, 2025 00:00:00").getTime();
+            let x = setInterval(function() {
+                let now = new Date().getTime();
+                let distance = countdownDate - now;
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("timer").innerHTML = days + " days left!";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
