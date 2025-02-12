@@ -6,10 +6,12 @@
     <title>For My Boba 💕</title>
     <style>
         body {
-            background-color: #ffe6f2;
+            background-color: #f8f8f8;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             color: #ff66b2;
+            overflow: hidden;
+            position: relative;
         }
         h1 {
             font-size: 2.5em;
@@ -34,11 +36,38 @@
             border-radius: 10px;
             margin: 5px;
         }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #99ccff;
+            clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 50% 75%, 25% 100%, 0% 35%);
+            animation: float 5s infinite;
+            opacity: 0.7;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-10vh); }
+        }
     </style>
 </head>
 <body>
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+        setInterval(createHearts, 1000);
+    </script>
+    
     <div class="container">
-        <h1>Hey Boba, my sweetest Omom! 💕</h1>
+        <h1>Hey boba, my sweetest OmOm! 🧋🩵💕🍬🤍💗 Happy Valentine's Day mi amore</h1>
         <button class="button" onclick="showLoveLetter()">Open Love Letter 💌</button>
         <div id="loveLetter" class="hidden">
             <p>To my dearest Boba, my one and only Omom... You are my sunshine, my happiness, my everything. Happy Valentine's Day! 💖</p>
@@ -54,6 +83,9 @@
             <p>What is our favorite date spot?</p>
             <button class="button">A) The café ☕</button>
             <button class="button">B) The park 🌳</button>
+            <p>What is our favorite song?</p>
+            <button class="button">A) Our special song 🎶</button>
+            <button class="button">B) A random song 🎵</button>
         </div>
         <button class="button" onclick="showCountdown()">Countdown to Our Next Adventure ⏳</button>
         <div id="countdown" class="hidden">
